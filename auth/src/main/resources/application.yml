@@ -4,9 +4,18 @@ spring:
         username: postgres
         password: password
         driver-class-name: org.postgresql.Driver
+    application:
+        name: auth
     jpa:
         hibernate:
             ddl-auto: update
         properties:
             hibernate:
                 dialect: org.hibernate.dialect.PostgreSQLDialect
+##eureka:
+##    client:
+##        serviceUrl:
+##            defaultZone: http://localhost:8081/eureka
+api:
+    security:
+        secret: 12345678
