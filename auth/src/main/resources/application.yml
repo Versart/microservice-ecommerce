@@ -12,10 +12,10 @@ spring:
         properties:
             hibernate:
                 dialect: org.hibernate.dialect.PostgreSQLDialect
-##eureka:
-##    client:
-##        serviceUrl:
-##            defaultZone: http://localhost:8081/eureka
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8081/eureka
 api:
     security:
         secret: 12345678
