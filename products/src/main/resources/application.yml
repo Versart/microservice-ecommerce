@@ -1,0 +1,27 @@
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/products?createDatabaseIfNotExist=true
+        username: postgres
+        password: password
+        driver-class-name: org.postgresql.Driver
+    application:
+        name: product-service
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+    security:
+        oauth2:
+            resourceserver:
+                jwt:
+                    issuer-uri: http://localhost:8080/realms/ecommerceversart
+
+eureka:
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8081/eureka/
+
+server:
+    port: 8083
