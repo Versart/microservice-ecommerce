@@ -5,12 +5,24 @@ spring:
         gateway:
             mvc:
                 routes:
-                 - id : authentication
+                 - id : products
                    uri: 
                     http://localhost:8083/
                    predicates:
-                    - Path=/auth/**
-
+                    - Path=/product-service/**
+            default-filters:
+                - TokenRelay
+    security:
+        oauth2:
+            client:
+                registration:
+                    keycloak:
+                        client-id: gateway-service
+                        client-secret: SqTAwyQ3UbtR68klC8Buq4IYWOr0Hl6c
+                        scope: openid
+                provider:
+                    keycloak:
+                        issuer-uri: http://localhost:8080/realms/ecommerceversart
 
 server:
     port: 8082
