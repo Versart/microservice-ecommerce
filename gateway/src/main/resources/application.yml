@@ -10,19 +10,13 @@ spring:
                     http://localhost:8083/
                    predicates:
                     - Path=/product-service/**
-            default-filters:
-                - TokenRelay
+                   
+                    
     security:
         oauth2:
-            client:
-                registration:
-                    keycloak:
-                        client-id: gateway-service
-                        client-secret: SqTAwyQ3UbtR68klC8Buq4IYWOr0Hl6c
-                        scope: openid
-                provider:
-                    keycloak:
-                        issuer-uri: http://localhost:8080/realms/ecommerceversart
+            resourceserver:
+                jwt:
+                    issuer-uri: http://localhost:8080/realms/ecommerce-versart
 
 server:
     port: 8082

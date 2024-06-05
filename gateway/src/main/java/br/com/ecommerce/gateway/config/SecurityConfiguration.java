@@ -9,14 +9,12 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig {
+public class SecurityConfiguration {
     
-
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
-        return httpSecurity
-        .authorizeHttpRequests(
-            http-> http.anyRequest().authenticated()).oauth2Login(Customizer.withDefaults())
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+        return httpSecurity.csrf(http -> http.disable()).authorizeHttpRequests(http -> http.anyRequest().authenticated())
+            .oauth2ResourceServer(server -> server.jwt(Customizer.withDefaults()))
             .build();
     }
 }
